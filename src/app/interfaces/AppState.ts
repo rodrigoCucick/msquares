@@ -4,8 +4,6 @@ export default interface AppState {
   field: number[][];
   defaultFieldRes: number;
   fieldRes: number;
-  minFieldRes: number;
-  maxFieldRes: number;
   isShowField: boolean;
   isShowIsolines: boolean;
   isRoundingField: boolean;

@@ -21,7 +21,18 @@ export default function Button({type, label, title}: ButtonInterface): JSX.Eleme
 
   return (
     <MenuItemContainer>
-      <button title={title} onClick={handleClick}>
+      <button
+        title={title}
+        onClick={handleClick}
+        className={`
+          justify-center
+          rounded
+          bg-violet
+          text-white
+          w-44
+          h-7
+          active:bg-violet
+          hover:bg-purple`}>
         {label}
       </button>
     </MenuItemContainer>

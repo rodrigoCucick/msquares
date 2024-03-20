@@ -22,22 +22,6 @@ export default class MathUtil {
     return -1;
   }
 
-  /**
-   * Given a value (number), validades it against the provided range (min/max)
-   * then returns a value that is in range.
-   * 
-   * @param {number} val The value to be normalized.
-   * @param {number} min The lowest value (inclusive).
-   * @param {number} max The highest value (inclusive).
-   * @returns A number inside the provided range.
-   */
-  public static normalizeInRange(val: number, min: number, max: number): number {
-    if (isNaN(val) || val < min) {
-      return min;
-    }
-    return val > max ? max : val;
-  }
-
   public static buildLineSegment(canvasOrigin: Point2D, fieldRes: number, midpoints: Midpoint[]): LineSegment {
     if (midpoints.length != 2) {
       throw new Error("The array of midpoints must have exactly 2 elements in order to build a line segment.");

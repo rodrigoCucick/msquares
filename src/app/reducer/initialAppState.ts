@@ -14,8 +14,6 @@ export const initialAppState: AppState = {
   field: ArrayUtil.generateRandomNumber2DArray(canvasWidth + 1, canvasHeight + 1),
   defaultFieldRes: defaultFieldRes,
   fieldRes: defaultFieldRes,
-  minFieldRes: 1,
-  maxFieldRes: 999,
   
   isShowField: true,
   isShowIsolines: true,

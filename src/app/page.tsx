@@ -20,12 +20,13 @@ export default function Page(): JSX.Element {
         <MenuContainer>
           <TextInput
             type={TextInputType.FIELD_RES}
-            label="Field Resolution"
+            label="Field Res.:"
             title="Determines the resolution of the field (in pixels)."
             placeholder="40"
             min={1}
-            max={3}
-            size={2} />
+            max={4}
+            size={3}
+            hasMiniButton={true} />
 
           <Checkbox
             type={CheckboxType.IS_SHOW_FIELD}
