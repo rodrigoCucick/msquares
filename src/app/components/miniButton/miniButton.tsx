@@ -3,10 +3,11 @@ import RefreshIcon from "../refreshIcon/refreshIcon";
 
 interface MiniButtonInterface {
   miniButtonIconType: MiniButtonIconType;
+  title: string;
   onClick: () => void;
 }
 
-export default function MiniButton({onClick, miniButtonIconType}: MiniButtonInterface): JSX.Element {
+export default function MiniButton({miniButtonIconType, title, onClick}: MiniButtonInterface): JSX.Element {
   const getMiniButtonIcon = () => {
     switch (miniButtonIconType) {
       case MiniButtonIconType.REFRESH:
@@ -19,6 +20,7 @@ export default function MiniButton({onClick, miniButtonIconType}: MiniButtonInte
   return (
     <button
       onClick={onClick}
+      title={title}
       className={`
         -translate-x-6
         rounded

@@ -6,6 +6,7 @@ import Button from "./components/button/button";
 import { ButtonType } from "./enums/ButtonType";
 import Checkbox from "./components/checkbox/checkbox";
 import { CheckboxType } from "./enums/CheckboxType";
+import Footer from "./components/footer/Footer";
 import MarchingSquares from "./components/marchingSquares/marchingSquares";
 import MenuContainer from "./components/menuContainer/menuContainer";
 import TextInput from "./components/textInput/textInput";
@@ -21,7 +22,7 @@ export default function Page(): JSX.Element {
           <TextInput
             type={TextInputType.FIELD_RES}
             label="Field Res.:"
-            title="Determines the resolution of the field (in pixels)."
+            title="Determines the resolution of the field (in pixels). Accepts only numbers between 1 and 9999. The lesser the value the longer it takes to render."
             placeholder="40"
             min={1}
             max={4}
@@ -50,6 +51,7 @@ export default function Page(): JSX.Element {
         </MenuContainer>
         <MarchingSquares />
       </AppContainer>
+      <Footer />
     </AppStateProvider>
   );
 }

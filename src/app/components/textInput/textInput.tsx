@@ -70,7 +70,10 @@ export default function TextInput({
           hover:shadow-md
           hover:border-violet`} />
         {hasMiniButton && type == TextInputType.FIELD_RES
-            ? <MiniButton miniButtonIconType={MiniButtonIconType.REFRESH} onClick={getHandleOnClickMiniButton()} />
+            ? <MiniButton
+                miniButtonIconType={MiniButtonIconType.REFRESH}
+                title="Click to apply the provided field resolution."
+                onClick={getHandleOnClickMiniButton()} />
             : ''}
     </MenuItemContainer>
   );
