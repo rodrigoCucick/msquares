@@ -1,4 +1,4 @@
-import { MiniButtonIconType } from "@/app/interfaces/MiniButtonIconType";
+import { MiniButtonIconType } from "@/app/enums/MiniButtonIconType";
 import RefreshIcon from "../refreshIcon/refreshIcon";
 
 interface MiniButtonInterface {

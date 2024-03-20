@@ -3,7 +3,7 @@ import { ChangeEvent, useId, useState } from "react";
 import { AppAction } from "@/app/enums/AppAction";
 import MenuItemContainer from "../menuItemContainer/menuItemContainer";
 import MiniButton from "../miniButton/miniButton";
-import { MiniButtonIconType } from "@/app/interfaces/MiniButtonIconType";
+import { MiniButtonIconType } from "@/app/enums/MiniButtonIconType";
 import { TextInputType } from "@/app/enums/TextInputType";
 import useAppState from "@/app/customHooks/useAppState";
 
