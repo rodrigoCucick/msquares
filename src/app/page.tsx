@@ -1,95 +1,54 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import AppContainer from "./components/appContainer/appContainer";
+import { AppStateProvider } from "./components/appStateProvider/appStateProvider";
+import Button from "./components/button/button";
+import { ButtonType } from "./enums/ButtonType";
+import Checkbox from "./components/checkbox/checkbox";
+import { CheckboxType } from "./enums/CheckboxType";
+import MarchingSquares from "./components/marchingSquares/marchingSquares";
+import MenuContainer from "./components/menuContainer/menuContainer";
+import TextInput from "./components/textInput/textInput";
+import { TextInputType } from "./enums/TextInputType";
+
+export default function Page(): JSX.Element {
+  // TODO - Add loading spinner (for smaller field resolutions which take longer to render).
+  //        Add color picker (field, isolines, etc).
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <AppStateProvider>
+      <AppContainer>
+        <MenuContainer>
+          <TextInput
+            type={TextInputType.FIELD_RES}
+            label="Field Resolution"
+            title="Determines the resolution of the field (in pixels)."
+            placeholder="40"
+            min={1}
+            max={3}
+            size={2} />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <Checkbox
+            type={CheckboxType.IS_SHOW_FIELD}
+            label="Show Field:"
+            title="Toggles the drawing of the field." />
+            
+          <Checkbox
+            type={CheckboxType.IS_SHOW_ISOLINES}
+            label="Show Isolines:"
+            title="Toggles the drawing of the isolines (contour lines)." />
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          <Checkbox
+            type={CheckboxType.IS_ROUNDING_FIELD}
+            label="Round Field Values:"
+            title="Toggles the rounding of the field values, changing the intensity of the circles' colors (binary on/off representation)." />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          <Button
+            type={ButtonType.GENERATE_NEW_FIELD}
+            label="Generate New Field"
+            title="Click to generate a new randomized field." />
+        </MenuContainer>
+        <MarchingSquares />
+      </AppContainer>
+    </AppStateProvider>
   );
 }
