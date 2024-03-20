@@ -22,9 +22,18 @@ export default class MathUtil {
     return -1;
   }
 
+  /**
+   * Creates a new line segment based on the canvas' origin, field resolution
+   * and two distinct midpoints.
+   * 
+   * @param {Point2D} canvasOrigin The canvas' origin point.
+   * @param {number} fieldRes The resolution of the field.
+   * @param {Midpoint[]} midpoints An array with exatcly two midpoints.
+   * @returns A new line segment with its corresponding points (p1 and p2).
+   */
   public static buildLineSegment(canvasOrigin: Point2D, fieldRes: number, midpoints: Midpoint[]): LineSegment {
     if (midpoints.length != 2) {
-      throw new Error("The array of midpoints must have exactly 2 elements in order to build a line segment.");
+      throw new Error("The array of midpoints must have exactly two elements in order to build a line segment.");
     }
     
     const fieldHalfRes = (fieldRes / 2);

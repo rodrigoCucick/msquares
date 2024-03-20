@@ -33,6 +33,12 @@ export default class DrawUtil {
     ctx.stroke();
   }
 
+  /**
+   * Draws a representation of the field with circles.
+   * 
+   * @param {CanvasRenderingContext2D} ctx The rendering context of the target canvas.
+   * @param {AppState} state The global states of the application.
+   */
   public static drawField(ctx: CanvasRenderingContext2D, state: AppState): void {
     const fieldWidth = (state.canvasWidth / state.fieldRes) + 1;
     const fieldHeight = (state.canvasHeight / state.fieldRes) + 1;
@@ -54,6 +60,12 @@ export default class DrawUtil {
     }
   }
 
+  /**
+   * Draws the field's isolines (contours).
+   * 
+   * @param {CanvasRenderingContext2D} ctx The rendering context of the target canvas.
+   * @param {AppState} state The global states of the application.
+   */
   public static drawIsolines(ctx: CanvasRenderingContext2D, state: AppState): void {
     const fieldWidth = (state.canvasWidth / state.fieldRes) + 1;
     const fieldHeight = (state.canvasHeight / state.fieldRes) + 1;
@@ -66,12 +78,20 @@ export default class DrawUtil {
         }
 
         const origin = {x: fieldX * state.fieldRes, y: fieldY * state.fieldRes};
-        this.drawStrokeIsolines(ctx, origin, cornersValue, state.fieldRes);
+        this.drawStrokeIsoline(ctx, origin, cornersValue, state.fieldRes);
       }
     }
   }
 
-  private static drawStrokeIsolines(ctx: CanvasRenderingContext2D, origin: Point2D,
+  /**
+   * Draws a single isoline based on previously computed corners' value.
+   * 
+   * @param {CanvasRenderingContext2D} ctx The rendering context of the target canvas.
+   * @param {Point2D} origin The canvas' origin point.
+   * @param {number} cornersValue The value of the field's corners.
+   * @param {number} fieldRes The resolution of the field.
+   */
+  private static drawStrokeIsoline(ctx: CanvasRenderingContext2D, origin: Point2D,
       cornersValue: number, fieldRes: number): void {
     switch (cornersValue) {
       case MathUtil.in(cornersValue, [1, 14]):
